@@ -58,6 +58,11 @@ public class MessageController {
         Model model=repo.findById(id).get();
         model.setFirstName(entity.getFirstName());
         model.setLastName(entity.getLastName());
-        return "Updated" +repo.save(entity);
+        return "Updated";
+    }
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable int id) {
+        repo.deleteById(id);
+        return "Deleted!";
     }
 }
