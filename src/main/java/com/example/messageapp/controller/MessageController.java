@@ -28,4 +28,9 @@ public class MessageController {
                       @RequestParam(value = "lastName") String lastName) {
         return "Hello " + firstName + " " + lastName + "!";
     }
+    @GetMapping("/greet/{name}")
+    public String greet(@PathVariable String name){
+        String given=service.getGreet(name);
+        return given;
+    }
 }

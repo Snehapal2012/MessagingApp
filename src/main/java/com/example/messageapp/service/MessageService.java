@@ -9,4 +9,8 @@ public class MessageService {
      String response=entity.getFirstName()+" "+entity.getLastName();
      return response;
     }
+
+    public String getGreet(String name) {
+        return "<h1><font color=pink>Hello World "+name+" !</font></h1>";
+    }
 }
