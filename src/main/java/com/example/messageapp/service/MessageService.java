@@ -5,6 +5,7 @@ import com.example.messageapp.repo.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,5 +39,10 @@ public class MessageService {
     public Optional<Model> findById(int id) {
         return repo1.findById(id);
 
+    }
+
+    public List<Model> getDetails() {
+        List<Model> result=repo1.findAll();
+        return result;
     }
 }

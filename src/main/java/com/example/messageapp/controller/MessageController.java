@@ -5,6 +5,7 @@ import com.example.messageapp.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -43,5 +44,10 @@ public class MessageController {
     @GetMapping("/findId/{id}")
     public Optional<Model> findId(@PathVariable int id){
         return service.findById(id);
+    }
+    @GetMapping("/getData")
+    public List<Model> getDetails() {
+        List<Model> result=service.getDetails();
+        return result;
     }
 }
