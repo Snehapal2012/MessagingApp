@@ -33,4 +33,9 @@ public class MessageController {
         String given=service.getGreet(name);
         return given;
     }
+    @GetMapping("/condition")
+    public String condition(@RequestParam(value = "first",defaultValue = "") String first, @RequestParam(value = "last", defaultValue = "") String last){
+        String result=service.getCondition(first, last);
+        return result;
+    }
 }
