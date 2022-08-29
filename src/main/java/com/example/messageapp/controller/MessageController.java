@@ -1,6 +1,7 @@
 package com.example.messageapp.controller;
 
 import com.example.messageapp.entity.Model;
+import com.example.messageapp.repo.MessageRepo;
 import com.example.messageapp.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,8 @@ import java.util.Optional;
 public class MessageController {
     @Autowired
     MessageService service;
+    @Autowired
+    MessageRepo repo;
     @GetMapping("/message")
     public String getData(){
         return "<h1><font color=blue style=bold>Welcome to my Message App!</font></h1>";
@@ -49,5 +52,12 @@ public class MessageController {
     public List<Model> getDetails() {
         List<Model> result=service.getDetails();
         return result;
+    }
+    @PutMapping("/edit/{id}")
+    public String edit(@RequestBody Model entity,@PathVariable int id) {
+        Model model=repo.findById(id).get();
+        model.setFirstName(entity.getFirstName());
+        model.setLastName(entity.getLastName());
+        return "Updated" +repo.save(entity);
     }
 }
