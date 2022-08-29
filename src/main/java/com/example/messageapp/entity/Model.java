@@ -1,14 +1,23 @@
 package com.example.messageapp.entity;
 
-public class Entity {
-    long id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Model{
+    @Id
+    @Column(name = "iD", nullable = false)
+     long iD;
     String firstName;
     String lastName;
-    public long getId(){
-        return id;
+
+    public Long getID() {
+        return iD;
     }
-    public void setId(long id){
-        this.id=id;
+
+    public void setID(Long iD) {
+        this.iD = iD;
     }
     public String getFirstName(){
         return firstName;

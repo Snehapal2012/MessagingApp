@@ -1,11 +1,16 @@
 package com.example.messageapp.service;
 
-import com.example.messageapp.entity.Entity;
+import com.example.messageapp.entity.Model;
+import com.example.messageapp.repo.MessageRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MessageService {
-    public String getService(Entity entity) {
+    @Autowired
+    MessageRepo repo1;
+    public String getService(Model entity) {
+        repo1.save(entity);
      String response=entity.getFirstName()+" "+entity.getLastName();
      return response;
     }

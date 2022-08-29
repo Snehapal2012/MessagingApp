@@ -1,6 +1,6 @@
 package com.example.messageapp.controller;
 
-import com.example.messageapp.entity.Entity;
+import com.example.messageapp.entity.Model;
 import com.example.messageapp.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class MessageController {
         return "<h1><font color=red>Hii "+name+" ! Welcome to BridgeLabz!</font></h1>";
     }
     @PostMapping("/post")
-    public String post(@RequestBody Entity entity){
+    public String post(@RequestBody Model entity){
         String response=service.getService(entity);
         return "<h1><font style=bold> Your full name is "+response+"</font></h1>";
     }
