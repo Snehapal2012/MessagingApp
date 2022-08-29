@@ -5,6 +5,8 @@ import com.example.messageapp.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/home")
 public class MessageController {
@@ -37,5 +39,9 @@ public class MessageController {
     public String condition(@RequestParam(value = "first",defaultValue = "") String first, @RequestParam(value = "last", defaultValue = "") String last){
         String result=service.getCondition(first, last);
         return result;
+    }
+    @GetMapping("/findId/{id}")
+    public Optional<Model> findId(@PathVariable int id){
+        return service.findById(id);
     }
 }

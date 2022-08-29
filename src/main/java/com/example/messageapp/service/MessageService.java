@@ -5,6 +5,8 @@ import com.example.messageapp.repo.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MessageService {
     @Autowired
@@ -31,5 +33,10 @@ public class MessageService {
             return "<h1><font color=brown style=italic>Hello "+first+"!!!</font></h1>";
         }
         else return "<h1><font color=brown style=italic>Hello "+first+" "+last+" !!!</font></h1>";
+    }
+
+    public Optional<Model> findById(int id) {
+        return repo1.findById(id);
+
     }
 }

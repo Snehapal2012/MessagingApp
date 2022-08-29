@@ -8,15 +8,15 @@ import javax.persistence.Id;
 public class Model{
     @Id
     @Column(name = "iD", nullable = false)
-     long iD;
+     int iD;
     String firstName;
     String lastName;
 
-    public Long getID() {
+    public int getID() {
         return iD;
     }
 
-    public void setID(Long iD) {
+    public void setID(int iD) {
         this.iD = iD;
     }
     public String getFirstName(){
